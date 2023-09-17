@@ -1,69 +1,56 @@
-# Bank System
+# Bank Management System
 
-This README file provides an overview of the **Bank System** code implemented in `Code.cpp`. This system allows clients to create accounts, perform transactions, and manage their accounts. It also offers administrative functions like sorting clients and printing all client information. The program uses a linked list data structure to manage client accounts.
+This is a simple command-line Bank Management System implemented in C++. It allows users to create and manage client accounts, perform transactions, and more. Below are the details of the classes and functionality provided by this program.
 
-## Table of Contents
-1. [Prerequisites](#prerequisites)
-2. [Code Structure](#code-structure)
-3. [Compilation](#compilation)
-4. [Usage](#usage)
-5. [Functionality](#functionality)
+## Classes
 
----
+### `Transaction`
+- Represents a bank transaction.
+- Attributes: `transactionID`, `transactionName`, `transactionDate`.
+- Provides getters and setters for these attributes.
+- Allows printing transaction information.
 
-## Prerequisites <a name="prerequisites"></a>
+### `Client`
+- Represents a bank client.
+- Attributes: `clientName`, `clientEmail`, `clientPhone`, `clientAddress`, `clientPassword`, `clientID`, `n`, `ar`.
+- Provides getters and setters for client attributes.
+- Allows creating transactions, printing client information, and removing transactions.
 
-Before compiling and running the `Code.cpp` program, ensure you have the following prerequisites:
-- A C++ compiler (e.g., g++)
-- A standard C++ library
-- A terminal or command prompt to run the program
+### `LinkedListNode`
+- Represents a node in a linked list containing a `Client` object.
+- Attributes: `data`, `next`.
+- Provides getters and setters for data and the next node.
 
----
+### `ClientsLinkedList`
+- Represents a linked list of clients.
+- Allows adding clients, checking emails, and user login.
 
-## Code Structure <a name="code-structure"></a>
+## Functions
 
-The code in `Code.cpp` consists of several classes and functions. Here is an overview of the key components:
+- `mainMenu()`: Displays the main menu and handles user interactions.
+- `loginMenu()`: Handles user login.
+- `clientHome()`: Provides options for clients after login.
+- `transactionsMenu()`: Allows clients to manage transactions.
+- `newClientMenu()`: Allows the creation of new client accounts.
+- `forget_password()`: Allows clients to retrieve or change their password.
+- `print()`: Prints the list of clients.
+- `hashInsert()`: Inserts a client into a hash table.
+- `quickSort()`: Sorts linked lists using the Quick Sort algorithm.
+- `sortLinkedLists()`: Sorts clients by linked list size.
+- `listSize()`: Calculates the size of a linked list.
+- `swap()`: Swaps two `LinkedListNode` objects.
+- `partition()`: Partitions a linked list for Quick Sort.
 
-- **Transaction Class**: Represents a transaction with attributes such as ID, name, and date.
-- **Client Class**: Represents a client with attributes like name, email, phone, and address. It also manages transactions.
-- **LinkedListNode Class**: Defines a node for a singly linked list of clients.
-- **ClientsLinkedList Class**: Manages a linked list of clients and provides functions to add clients, check emails, and facilitate login.
-- **Main Functions**: Includes the `mainMenu`, `loginMenu`, `newClientMenu`, `transactionsMenu`, `clientHome`, and other utility functions to perform various actions.
+## Usage
 
----
+1. Run the program.
+2. Choose from the available options in the main menu to perform various operations.
 
-## Compilation <a name="compilation"></a>
+## Note
 
-To compile the code, you can use a C++ compiler. Open your terminal or command prompt, navigate to the directory containing `Code.cpp`, and use the following command:
+- The program simulates a basic bank management system and does not store data permanently. Data is lost when the program exits.
+- For security purposes, passwords are not stored in plaintext; they are stored as attributes in the `Client` class.
+- The code includes hash table functionality for demonstration purposes.
+- It is recommended to replace the use of `rand()` for generating client IDs with a more robust method in a real-world application.
 
-```shell
-g++ Code.cpp -o BankSystem
-```
-
-This command compiles the code and generates an executable file named `BankSystem`.
-
----
-
-## Usage <a name="usage"></a>
-
-After compiling the code, you can run the `BankSystem` executable as follows:
-
-```shell
-./BankSystem
-```
-
-This will start the program, and you will be presented with a menu of options to perform various banking operations.
-
----
-
-## Functionality <a name="functionality"></a>
-
-The program provides the following functionality:
-
-1. **Login to Your Account**: Existing clients can log in using their email and password.
-2. **Add New Client**: New clients can create accounts by providing their information.
-3. **Forgot Your Password?**: Clients can recover their password or change it.
-4. **Printing All Clients**: View a list of all clients and their information.
-5. **Sort Clients by Linked List Size**: Sort clients based on the number of linked list nodes (quick sort algorithm).
-6. **Sort Clients by Using Their IDs (Bonus Part)**: Sort clients based on their IDs.
-7. **Exit the Program**: Quit the application.
+Feel free to use and modify this code as needed for your project or learning purposes.
